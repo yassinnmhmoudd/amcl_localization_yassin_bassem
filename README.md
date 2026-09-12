@@ -106,7 +106,8 @@ After giving AMCL the **correct** initial pose (matching the robot's real positi
 
 Once correct, the LaserScan aligns with the robot's real surroundings, and the particle filter's output (see `/particle_cloud` and `/amcl_pose`) converges to a tight cluster around the true pose instead of a wide spread.
 
-*(Screenshot to be inserted here.)*
+<img width="1365" height="581" alt="image" src="https://github.com/user-attachments/assets/cb495f78-1962-4706-a02a-cd20e9e7f833" />
+
 
 ## 7. Screenshot Showing the Particle Cloud
 
@@ -118,7 +119,8 @@ ros2 topic echo /particle_cloud --once
 
 This returns an array of individual particle poses and weights. Before convergence (wrong/initial pose), particle positions are spread across a wide range of x/y values. After convergence (correct pose), particle positions cluster tightly together.
 
-*(Screenshot to be inserted here.)*
+<img width="1362" height="640" alt="Screenshot 2026-09-12 225312" src="https://github.com/user-attachments/assets/e012759c-ef67-4be4-ac1d-77ae94647c73" />
+
 
 > **Note:** in this environment, RViz's `Map` and `ParticleCloud` visual displays fail to render (GLSL shader compatibility issue with the sandbox's software renderer — `indexed_8bit_image.vert/frag` compile errors). Both topics publish valid, correctly-typed data confirmed via `ros2 topic echo` and `ros2 topic info`; only the visual rendering of these two specific displays is affected. See section 11 for details.
 
@@ -132,7 +134,8 @@ ros2 run tf2_ros tf2_echo map odom
 
 Once AMCL has received a valid initial pose, this returns a live `map → odom` transform, confirming the full chain `map → odom → base_footprint → base_scan` is connected and consistent.
 
-*(Screenshot / `view_frames` PDF to be inserted here.)*
+<img width="768" height="364" alt="Screenshot 2026-09-12 224815" src="https://github.com/user-attachments/assets/277c46a4-1591-45b4-8609-8aa9c11c0a10" />
+
 
 ## 9. Required Topic and Transform Outputs
 
@@ -161,9 +164,7 @@ ros2 run tf2_ros tf2_echo odom base_footprint
 
 ## 10. Demo Video Link
 
-[Demo video](demo/amcl_localization_demo.mp4)
 
-*(Or replace with a hosted link, e.g. YouTube/Drive, once uploaded.)*
 
 ## 11. Common Problems Faced and How They Were Solved
 
